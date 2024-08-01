@@ -1,0 +1,110 @@
+.loginComponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.loginHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  margin: 40px;
+}
+
+.loginpageImage {
+  height: 100%;
+  margin-right: 50px;
+}
+
+.actionsSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupSection {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginSection {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupForm {
+  width: 70%;
+  border: 2px solid lightgray;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+@media (min-width: 993px) {
+  .mobileLogo {
+    display: none;
+  }
+  .loginComponent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 992px) {
+  .actionsSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .signupSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    order: 2;
+  }
+
+  .signupForm {
+    width: 80%;
+  }
+
+  .loginSection {
+    width: 100%;
+    margin-bottom: 50px;
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .desktopLogo {
+    display: none;
+  }
+}
+
+.signupHeading {
+  margin-bottom: 20px;
+}
+
+.resMsg {
+  color: red;
+  font-size: 12px;
+}

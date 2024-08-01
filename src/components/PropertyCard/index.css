@@ -1,0 +1,14 @@
+.cardComponent {
+  width: 350px;
+  margin: 12px;
+}
+
+.cardImg {
+  width: 350px;
+  height: 220px;
+}
+
+.cardTxt {
+  height: 72px;
+  overflow: hidden;
+}

@@ -1,0 +1,30 @@
+.homeComponent {
+  display: flex;
+  flex-direction: column;
+}
+
+.homeBody {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.mainHome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.filters {
+  display: flex;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0px;
+}
+
+.filtersPara {
+  margin: 0px 8px;
+}

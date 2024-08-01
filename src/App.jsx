@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import ProtectedRoute from "./components/ProtectedRoutes";
+import Notfound from "./components/Notfound";
+import "./App.css";
+import Cart from "./components/Cart";
+import Dashboard from "./components/Dashboard";
+import PropertyDetails from "./components/PropertyDetails";
+import CartContext from "./context/CartContext";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [cartItems, ChangeCartItems] = useState([]);
+
+  const addToCartItems = (newItem) => {
+    ChangeCartItems([...cartItems, newItem]);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <CartContext.Provider value={{ cartItems, addToCartItems }}>
+      <div className="appComponent">
+        <Routes>
+          <Route exact path="/login" element={<Login />} />
+          <Route element={<ProtectedRoute />}>
+            <Route exact path="/" Component={Home} />
+            <Route exact path="/cart" Component={Cart} />
+            <Route exact path="/dashboard" Component={Dashboard} />
+            <Route exact path="/properties/:id" Component={PropertyDetails} />
+          </Route>
+          <Route exact path="/not-found" element={<Notfound />} />
+          <Route path="*" element={<Notfound />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </CartContext.Provider>
+  );
 }
 
-export default App
+export default App;

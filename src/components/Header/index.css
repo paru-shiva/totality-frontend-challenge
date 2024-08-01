@@ -1,0 +1,52 @@
+.HeaderComponent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  height: 60px;
+  padding: 0px 15px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.headerImg {
+  height: 100%;
+}
+
+.headerLinks {
+  text-decoration: none;
+  color: white;
+  margin: 0px 8px;
+}
+
+.logoutBtn {
+  border: 1px solid white;
+  border-radius: 20px;
+  background-color: transparent;
+  color: white;
+}
+
+@media (max-width: 992px) {
+  .desktopHeader {
+    display: none;
+  }
+}
+
+@media (min-width: 993px) {
+  .mobileHeader {
+    display: none;
+  }
+}

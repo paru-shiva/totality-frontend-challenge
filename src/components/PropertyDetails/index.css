@@ -1,0 +1,41 @@
+.propertyDetailsComponent {
+  display: flex;
+  flex-direction: column;
+}
+
+.propertyDetailsSection {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.propDetailsImg {
+  border-radius: 8px;
+}
+
+.locationH5 {
+  margin: 12px 0px 8px 0px;
+}
+
+.propData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addingSection {
+  display: flex;
+  align-items: center;
+}
+
+.propDetailsBtns {
+  margin: 10px;
+}
+
+.backLinkBtn {
+  margin-top: 20px;
+}
