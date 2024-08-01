@@ -32,7 +32,9 @@ const Home = () => {
 
   useEffect(() => {
     const fetchPropData = async () => {
-      const response = await fetch("http://localhost:3000/properties");
+      const response = await fetch(
+        "https://totality-backend-h5yb.onrender.com/properties"
+      );
       const result = await response.json();
       changePropertiesData(result);
       changeFilteredProps(result);

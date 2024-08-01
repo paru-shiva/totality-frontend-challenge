@@ -20,7 +20,10 @@ const Header = () => {
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await fetch("http://localhost:3000/getemail", options);
+      const response = await fetch(
+        "https://totality-backend-h5yb.onrender.com/getemail",
+        options
+      );
       const { email } = await response.json();
       setUserEmail(email);
     };

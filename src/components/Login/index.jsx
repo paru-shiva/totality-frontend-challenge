@@ -41,7 +41,10 @@ const Login = () => {
       },
       body: JSON.stringify(reqBody),
     };
-    const response = await fetch("http://localhost:3000/signup", options);
+    const response = await fetch(
+      "https://totality-backend-h5yb.onrender.com/signup",
+      options
+    );
     const result = await response.json();
     changeSignupResponse(`*${result.resMsg}`);
   };
@@ -57,7 +60,10 @@ const Login = () => {
       },
       body: JSON.stringify(reqBody),
     };
-    const response = await fetch("http://localhost:3000/login", options);
+    const response = await fetch(
+      "https://totality-backend-h5yb.onrender.com/login",
+      options
+    );
     const result = await response.json();
     changeLoginResponse(`${result.resMsg}`);
     const status = result.loginStatus;
