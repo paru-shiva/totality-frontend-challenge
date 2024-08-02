@@ -17,6 +17,17 @@
   border-radius: 10px;
 }
 
+.decIncBtnsDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.decIncBtns {
+  margin: 8px;
+  border-radius: 6px;
+}
+
 @media (max-width: 992px) {
   .cartItem {
     margin: 20px;

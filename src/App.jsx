@@ -17,8 +17,52 @@ function App() {
     ChangeCartItems([...cartItems, newItem]);
   };
 
+  const increaseCartItem = (id) => {
+    const increasedCartList = cartItems.map((ei) => {
+      if (ei.id == id) {
+        return { ...ei, count: ei.count + 1 };
+      } else {
+        return ei;
+      }
+    });
+    console.log(increasedCartList);
+
+    ChangeCartItems(increasedCartList);
+  };
+
+  const decreaseCartItem = (id) => {
+    const increasedCartList = cartItems.map((ei) => {
+      if (ei.id == id) {
+        if (ei.count == 1) {
+          const updatedItems = cartItems.filter((ei) => {
+            if (ei.id == id) {
+              return false;
+            } else {
+              return true;
+            }
+          });
+          ChangeCartItems(updatedItems);
+        }
+        return { ...ei, count: ei.count - 1 };
+      } else {
+        return ei;
+      }
+    });
+    console.log(increasedCartList);
+
+    ChangeCartItems(increasedCartList);
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCartItems }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addToCartItems,
+        increaseCartItem,
+        ChangeCartItems,
+        decreaseCartItem,
+      }}
+    >
       <div className="appComponent">
         <Routes>
           <Route exact path="/login" element={<Login />} />

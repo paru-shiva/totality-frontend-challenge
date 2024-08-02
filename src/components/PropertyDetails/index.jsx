@@ -12,12 +12,27 @@ const PropertyDetails = () => {
 
   const cartContext = useContext(CartContext);
 
-  const { cartItems, addToCartItems } = cartContext;
+  const { cartItems, addToCartItems, ChangeCartItems } = cartContext;
 
   console.log(cartItems);
 
   const onCartAdd = () => {
-    addToCartItems({ propData: propData[0], count });
+    const found = cartItems.find((eo) => eo.id == propData[0].id);
+
+    if (found === undefined) {
+      addToCartItems({ ...propData[0], count: count });
+    } else {
+      const increasedCartList = cartItems.map((ei) => {
+        if (ei.id == propData[0].id) {
+          return { ...ei, count: ei.count + 1 };
+        } else {
+          return ei;
+        }
+      });
+      console.log(increasedCartList);
+
+      ChangeCartItems(increasedCartList);
+    }
   };
 
   const increaseCount = () => {
