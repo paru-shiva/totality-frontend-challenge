@@ -35,7 +35,7 @@ const Login = () => {
 
   const onSignupSubmit = async (e) => {
     e.preventDefault();
-    changeSigningupStatus("Please Wait..");
+    changeSigningupStatus("The DB is Slow, Please Wait..");
     const reqBody = { useremail: signupEmail, password: signupPassword };
     const options = {
       method: "POST",
@@ -56,7 +56,7 @@ const Login = () => {
 
   const onLoginSubmit = async (e) => {
     e.preventDefault();
-    changeLoadingStatus("Signing you in Please Wait..");
+    changeLoadingStatus("Signing you in, (The DB is Slow) Please Wait..");
     const reqBody = { useremail: loginEmail, password: loginPassword };
     const options = {
       method: "POST",
