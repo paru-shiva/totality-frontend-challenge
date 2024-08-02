@@ -43,6 +43,9 @@
   .desktopHeader {
     display: none;
   }
+  .headerTitle {
+    display: none;
+  }
 }
 
 @media (min-width: 993px) {

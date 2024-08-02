@@ -40,7 +40,7 @@ const Header = () => {
       <div className="headerLeft">
         <Link to="/" className="headerLeft">
           <img className="headerImg" src="/totalityCorpImage.jpg" />
-          <h4>Totality Corp</h4>
+          <h4 className="headerTitle">Totality Corp</h4>
         </Link>
       </div>
       <div className="headerRight desktopHeader">
