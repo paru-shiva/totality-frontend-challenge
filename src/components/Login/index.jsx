@@ -14,6 +14,9 @@ const Login = () => {
   const [loginEmail, changeLoginEmail] = useState("");
   const [loginPassword, changeLoginPassword] = useState("");
 
+  const [loadingStatus, changeLoadingStatus] = useState("");
+  const [signingupStatus, changeSigningupStatus] = useState("");
+
   const onSignupEmailChange = (e) => {
     changeSignupEmail(e.target.value);
   };
@@ -32,6 +35,7 @@ const Login = () => {
 
   const onSignupSubmit = async (e) => {
     e.preventDefault();
+    changeSigningupStatus("Please Wait..");
     const reqBody = { useremail: signupEmail, password: signupPassword };
     const options = {
       method: "POST",
@@ -47,10 +51,12 @@ const Login = () => {
     );
     const result = await response.json();
     changeSignupResponse(`*${result.resMsg}`);
+    changeSigningupStatus("");
   };
 
   const onLoginSubmit = async (e) => {
     e.preventDefault();
+    changeLoadingStatus("Signing you in Please Wait..");
     const reqBody = { useremail: loginEmail, password: loginPassword };
     const options = {
       method: "POST",
@@ -66,12 +72,15 @@ const Login = () => {
     );
     const result = await response.json();
     changeLoginResponse(`${result.resMsg}`);
+    changeLoadingStatus("");
     const status = result.loginStatus;
     if (status) {
       const { jwtToken } = result;
       //console.log(result.resMsg);
       Cookies.set("jwt_token", jwtToken, { expires: 7 });
       navigateTo("/");
+    } else {
+      changeLoginResponse(`${result.resMsg}`);
     }
   };
 
@@ -115,6 +124,7 @@ const Login = () => {
         <button type="submit" className="btn btn-outline-dark">
           Sign Up
         </button>
+        <p>{signingupStatus}</p>
       </form>
     );
   };
@@ -160,6 +170,7 @@ const Login = () => {
         <button type="submit" className="btn btn-dark">
           Login
         </button>
+        <p>{loadingStatus}</p>
       </form>
     );
   };
