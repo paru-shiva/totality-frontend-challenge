@@ -21,7 +21,7 @@ const Header = () => {
         },
       };
       const response = await fetch(
-        "https://totality-backend-h5yb.onrender.com/getemail",
+        "https://totality-backend-hima.onrender.com/getemail",
         options
       );
       const { email } = await response.json();

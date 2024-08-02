@@ -42,7 +42,7 @@ const Login = () => {
       body: JSON.stringify(reqBody),
     };
     const response = await fetch(
-      "https://totality-backend-h5yb.onrender.com/signup",
+      "https://totality-backend-hima.onrender.com/signup",
       options
     );
     const result = await response.json();
@@ -61,7 +61,7 @@ const Login = () => {
       body: JSON.stringify(reqBody),
     };
     const response = await fetch(
-      "https://totality-backend-h5yb.onrender.com/login",
+      "https://totality-backend-hima.onrender.com/login",
       options
     );
     const result = await response.json();

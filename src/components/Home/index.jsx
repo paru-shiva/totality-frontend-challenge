@@ -33,7 +33,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPropData = async () => {
       const response = await fetch(
-        "https://totality-backend-h5yb.onrender.com/properties"
+        "https://totality-backend-hima.onrender.com/properties"
       );
       const result = await response.json();
       changePropertiesData(result);
