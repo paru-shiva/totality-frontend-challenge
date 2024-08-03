@@ -10,6 +10,8 @@ const PropertyDetails = () => {
 
   const [count, changeCount] = useState(1);
 
+  const [addedToCart, changeAddedToCard] = useState("");
+
   const cartContext = useContext(CartContext);
 
   const { cartItems, addToCartItems, ChangeCartItems } = cartContext;
@@ -17,6 +19,7 @@ const PropertyDetails = () => {
   console.log(cartItems);
 
   const onCartAdd = () => {
+    changeAddedToCard("Added to Cart");
     const found = cartItems.find((eo) => eo.id == propData[0].id);
 
     if (found === undefined) {
@@ -97,6 +100,7 @@ const PropertyDetails = () => {
               Add to Cart
             </button>
           </div>
+          <p>{addedToCart}</p>
           <Link to="/" className="backLinkBtn">
             <button className="btn btn-outline-dark">
               Go Back to Other Properties
