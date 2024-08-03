@@ -6,10 +6,12 @@ This Platform is for Booking the properties online
 
 This Platform is built with various technologies like node express and react enabling the purchase of
 properties in different locations of india, based on differnt filters like property budget and location.
+It is built using bootstrap, can be accessible in both desktop and mobile.
 
 ### Dependencies
 
 - node
+- bootstrap
 - react
 - mysql2
 - express
