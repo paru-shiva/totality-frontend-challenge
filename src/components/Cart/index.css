@@ -55,3 +55,37 @@
 .totalPrice {
   text-decoration: underline;
 }
+
+.cartHeading {
+  margin-top: 20px;
+}
+
+.cnandcvv {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.cardNum {
+  width: 80%;
+}
+
+.cvv {
+  width: 20%;
+  margin-left: 5px;
+}
+
+.cusDetails {
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.validStatus {
+  color: red;
+}
+
+.successHeading {
+  margin-top: 20px;
+  color: maroon;
+}

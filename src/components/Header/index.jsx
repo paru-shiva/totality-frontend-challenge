@@ -45,11 +45,9 @@ const Header = () => {
       </div>
       <div className="headerRight desktopHeader">
         <Link to="/cart" className="headerLinks">
-          Cart
+          Cart {<GiShoppingCart />}
         </Link>
-        <Link to="/orders" className="headerLinks">
-          Orders
-        </Link>
+
         <p className="headerLinks">{userEmail}</p>
         <button
           onClick={onLogoutClick}
@@ -64,9 +62,7 @@ const Header = () => {
         <Link to="/cart" className="headerLinks">
           <GiShoppingCart />
         </Link>
-        <Link to="/orders" className="headerLinks">
-          <PiPackageLight />
-        </Link>
+
         <p className="headerLinks">{userEmail}</p>
         <button
           onClick={onLogoutClick}
