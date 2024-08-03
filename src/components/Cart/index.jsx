@@ -93,7 +93,9 @@ const Cart = () => {
         <p className="validStatus">{validStatus}</p>
       </div>
     ) : (
-      <h2>The Order Placed Successufully. We will get back to you Soon.</h2>
+      <h2 className="successHeading">
+        The Order Placed Successufully. We will get back to you Soon.
+      </h2>
     );
   };
 
