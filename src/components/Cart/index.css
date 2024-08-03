@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.cartComponent {
+  text-align: center;
+}
+
 .cartItem {
   margin: 20px;
   width: 70%;

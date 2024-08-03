@@ -48,7 +48,7 @@ const Cart = () => {
   console.log(cartItems);
 
   const renderDetailsForm = () => {
-    return orderStatus === false ? (
+    return (
       <div className="cusDetails">
         <h2 className="cartHeading">Enter your Details to place the Order</h2>
 
@@ -92,49 +92,51 @@ const Cart = () => {
         </button>
         <p className="validStatus">{validStatus}</p>
       </div>
-    ) : (
-      <h2 className="successHeading">
-        The Order Placed Successufully. We will get back to you Soon.
-      </h2>
     );
   };
 
   return (
     <div className="cartComponent">
       <Header />
-      <div className="cartComponentBody">
-        {cartItems.map((ei) => {
-          const onIncreaseClick = () => {
-            increaseCartItem(ei.id);
-          };
-          const onDecreaseClick = () => {
-            decreaseCartItem(ei.id);
-          };
+      {orderStatus === false ? (
+        <div className="cartComponentBody">
+          {cartItems.map((ei) => {
+            const onIncreaseClick = () => {
+              increaseCartItem(ei.id);
+            };
+            const onDecreaseClick = () => {
+              decreaseCartItem(ei.id);
+            };
 
-          return (
-            <div key={ei.id} className="cartItem">
-              <img src={ei.imageurl} className="cartThumbnail" />
-              <h4>{ei.title}</h4>
-              <p className="cartPara">{`Price: ${ei.price}Lakhs`}</p>
-              <b>
-                <div className="decIncBtnsDiv">
-                  <button onClick={onDecreaseClick} className="decIncBtns">
-                    -
-                  </button>
-                  <p className="cartPara">{`Quantity: ${ei.count} Nos`}</p>
-                  <button onClick={onIncreaseClick} className="decIncBtns">
-                    +
-                  </button>
-                </div>
-              </b>
-            </div>
-          );
-        })}
-        <div>
-          <h4 className="totalPrice cartPara">{`Total Price: ${totalValue} Lakhs/-`}</h4>
+            return (
+              <div key={ei.id} className="cartItem">
+                <img src={ei.imageurl} className="cartThumbnail" />
+                <h4>{ei.title}</h4>
+                <p className="cartPara">{`Price: ${ei.price}Lakhs`}</p>
+                <b>
+                  <div className="decIncBtnsDiv">
+                    <button onClick={onDecreaseClick} className="decIncBtns">
+                      -
+                    </button>
+                    <p className="cartPara">{`Quantity: ${ei.count} Nos`}</p>
+                    <button onClick={onIncreaseClick} className="decIncBtns">
+                      +
+                    </button>
+                  </div>
+                </b>
+              </div>
+            );
+          })}
+          <div>
+            <h4 className="totalPrice cartPara">{`Total Price: ${totalValue} Lakhs/-`}</h4>
+          </div>
+          {cartItems.length > 0 && renderDetailsForm()}
         </div>
-        {cartItems.length > 0 && renderDetailsForm()}
-      </div>
+      ) : (
+        <h2 className="successHeading">
+          The Order Placed Successufully. We will get back to you Soon.
+        </h2>
+      )}
     </div>
   );
 };
