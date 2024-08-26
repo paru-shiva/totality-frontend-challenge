@@ -43,7 +43,8 @@ const PropertyDetails = () => {
   };
 
   const decreaseCount = () => {
-    changeCount((pc) => pc - 1);
+    if((count - 1) != 0){
+    changeCount((pc) => pc - 1);}
   };
 
   const currentlocation = useLocation();
