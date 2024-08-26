@@ -55,7 +55,7 @@ const Home = () => {
         <div className="filters">
           <p className="filtersPara">Location: </p>
           <select
-            class="form-select"
+            className="form-select"
             aria-label="Default select example"
             value={location}
             onChange={onLocationChange}
@@ -71,7 +71,7 @@ const Home = () => {
 
           <p className="filtersPara">Price: </p>
           <select
-            class="form-select"
+            className="form-select"
             aria-label="Default select example"
             onChange={onPriceChange}
             value={priceFilter}

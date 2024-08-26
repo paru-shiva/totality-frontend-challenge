@@ -31,26 +31,20 @@ function App() {
   };
 
   const decreaseCartItem = (id) => {
-    const increasedCartList = cartItems.map((ei) => {
+    const decreasedCartList = cartItems.map((ei) => {
       if (ei.id == id) {
-        if (ei.count == 1) {
-          const updatedItems = cartItems.filter((ei) => {
-            if (ei.id == id) {
-              return false;
-            } else {
-              return true;
-            }
-          });
-          ChangeCartItems(updatedItems);
+        if (ei.count != 0) {
+          return { ...ei, count: ei.count - 1 };
+        } else {
+          return ei;
         }
-        return { ...ei, count: ei.count - 1 };
       } else {
         return ei;
       }
     });
-    console.log(increasedCartList);
+    console.log(decreasedCartList);
 
-    ChangeCartItems(increasedCartList);
+    ChangeCartItems(decreasedCartList);
   };
 
   return (
