@@ -27,6 +27,9 @@ const Cart = () => {
   const [validStatus, changeValidStatus] = useState("");
   const [orderStatus, changeOrderStatus] = useState(false);
 
+  const num = Number(cardNumber);
+  const CVV = Number(cvv);
+
   const onCardnumberChange = (e) => {
     changeCardNumber(e.target.value);
   };
@@ -39,10 +42,34 @@ const Cart = () => {
     changeAddress(e.target.value);
   };
 
-  const onSubmitClick = () => {
-    if (cardNumber === "" || cvv === "" || address === "") {
-      changeValidStatus("*Enter Details Properly");
+  const validateCardNumber = () => {
+    if (cardNumber.length == 16 && Number.isInteger(num)) {
+      return true;
     } else {
+      return false;
+    }
+  };
+
+  const validateCVV = () => {
+    if (cvv.length == 3 && Number.isInteger(CVV)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  console.log(validateCardNumber(), validateCVV());
+
+  const validateAddress = () => {
+    if (address.length > 40) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const onSubmitClick = () => {
+    if (validateCardNumber() && validateCVV() && validateAddress()) {
       changeValidStatus(
         "*Order Placed Successfully! We will get back to you Soon"
       );
@@ -50,10 +77,18 @@ const Cart = () => {
       changeCardNumber("");
       changeCvv("");
       changeOrderStatus(true);
+    } else {
+      if (!validateCardNumber()) {
+        changeValidStatus("*Enter Valid 16 Digit Card Number");
+      } else if (!validateCVV()) {
+        changeValidStatus("*Enter Valid 3 digit CVV Number");
+      } else {
+        changeValidStatus("*Address Must be atleast 40 Characters");
+      }
+
+      //changeValidStatus("*Enter Details Properly");
     }
   };
-
-  console.log(cartItems);
 
   const renderDetailsForm = () => {
     return (
