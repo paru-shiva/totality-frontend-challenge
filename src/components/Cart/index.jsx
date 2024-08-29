@@ -13,6 +13,14 @@ const Cart = () => {
     totalValue += ci.count * ci.price;
   });
 
+  let itemsInCart = 0;
+
+  cartItems.forEach((ei) => {
+    if (ei.count > 0) {
+      itemsInCart += 1;
+    }
+  });
+
   const [cardNumber, changeCardNumber] = useState("");
   const [cvv, changeCvv] = useState("");
   const [address, changeAddress] = useState("");
@@ -108,7 +116,7 @@ const Cart = () => {
               decreaseCartItem(ei.id);
             };
 
-            return (
+            return ei.count === 0 ? null : (
               <div key={ei.id} className="cartItem">
                 <img src={ei.imageurl} className="cartThumbnail" />
                 <h4>{ei.title}</h4>
@@ -128,9 +136,11 @@ const Cart = () => {
             );
           })}
           <div>
-            <h4 className="totalPrice cartPara">{`Total Price: ${totalValue} Lakhs/-`}</h4>
+            {itemsInCart > 0 ? (
+              <h4 className="totalPrice cartPara">{`Total Price: ${totalValue} Lakhs/-`}</h4>
+            ) : null}
           </div>
-          {cartItems.length > 0 && renderDetailsForm()}
+          {itemsInCart > 0 ? renderDetailsForm() : <img src="empty-cart.png" />}
         </div>
       ) : (
         <h2 className="successHeading">
